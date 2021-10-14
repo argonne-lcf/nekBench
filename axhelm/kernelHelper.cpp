@@ -36,6 +36,11 @@ static occa::kernel loadAxKernel(occa::device device, const std::string threadMo
 
   std::string root(DBP);
   std::string filename = root + "kernel/" + arch + "/axhelm";
+
+  //occa::json kernelProps({
+  //  {"okl/enabled", false}
+  //});
+
   for (int r = 0; r < 2; r++) 
   {
     if ((r == 0 && rank == 0) || (r == 1 && rank > 0)) 

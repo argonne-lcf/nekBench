@@ -1,16 +1,17 @@
 #########################################################
 # USER SETTINGS
 #########################################################
-export CC = mpicc
-export FC = mpif77
-export CXX = mpic++
-export LD = mpic++
+export CC = mpiicx   #mpicc
+export FC = mpiifx   #mpif77
+export CXX = mpiicpx #mpic++
+export LD = mpiicpx  #mpic++
 
 export NALIGN ?= 64
 
-export OCCA_CUDA_ENABLED=1
+export OCCA_CUDA_ENABLED=0
 export OCCA_HIP_ENABLED=0
-export OCCA_OPENCL_ENABLED=0
+export OCCA_OPENCL_ENABLED=1
+export OCCA_DPCPP_ENABLED=1
 export OCCA_METAL_ENABLED=0
 #export OCCA_INCLUDE_PATH="/usr/local/cuda/include"
 #export OCCA_LIBRARY_PATH="/usr/local/cuda/lib"

@@ -1,0 +1,144 @@
+12 [140277460386112] INFO perfrun.launcher <> - Launcher main begin
+18 [140277460386112] INFO perfrun.launcher <> - MessageCatalogInit finished
+18 [140277460386112] INFO perfrun.launcher <> - Launcher instance created
+18 [140277460386112] INFO perfrun.launcher <> - argc = 7; cmdline = /soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/advisor/2021.3.0-prerelease/bin64/advixe-runss --ui-output-format xml --ui-output-fd 10 --option-file /home/spatel/A21/CEED/nekBench/axhelm/e000/hs001/config/runss.options 
+86 [140277460386112] INFO perfrun.launcher <> - create msngr2::ICliToolContext
+86 [140277460386112] INFO perfrun.launcher <> - create file finder object
+86 [140277460386112] INFO perfrun.launcher <> - create a result directory: pattern = /home/spatel/A21/CEED/nekBench/axhelm/e000/hs001 pid = 4294967295
+97 [140277460386112] INFO perfrun.sdk <> - checked that the directory /home/spatel/A21/CEED/nekBench/axhelm/e000/hs001 is a local directory
+97 [140277460386112] INFO perfrun.sdk <> - the directory /home/spatel/A21/CEED/nekBench/axhelm/e000/hs001 is located on a share or its FS ID is unknown 26985
+97 [140277460386112] INFO perfrun.sdk <> - checked that the directory /tmp/advixe-tmp-spatel is a local directory
+97 [140277460386112] INFO perfrun.sdk <> - the directory /tmp/advixe-tmp-spatel is a local directory with FS type ID 61267
+97 [140277460386112] INFO perfrun.launcher <> - Create a local result directory /tmp/advixe-tmp-spatel/advixe-res-3100-4832730338707305 due to the user result path /home/spatel/A21/CEED/nekBench/axhelm/e000/hs001 is located on a share
+98 [140277460386112] INFO perfrun.launcher <> - create data directory = /tmp/advixe-tmp-spatel/advixe-res-3100-4832730338707305/data.0
+98 [140277460386112] INFO perfrun.launcher <> - create data directory = /home/spatel/A21/CEED/nekBench/axhelm/e000/hs001/data.0
+99 [140277460386112] INFO perfrun.launcher <> - Creating the master collection flag
+102 [140277460386112] INFO perfrun.launcher <> - Done creating the master collection flag
+114 [140277324789504] INFO perfrun.launcher <> - plugin [remoteplug] was disabled because it doesn't support the given collection type.
+114 [140277324789504] INFO perfrun.sdk <> - Allocating TMU :/tmp/advixe-tmp-spatel/advixe-res-3100-4832730338707305/data.0/systemcollector-3100-arcticus09.sc
+114 [140277324789504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+114 [140277324789504] INFO perfrun.gpu <> - Event consumer configurations: 
+114 [140277324789504] INFO perfrun.sdk <> - Reading value (0) from file: /proc/sys/dev/i915/perf_stream_paranoid
+138 [140277324789504] INFO perfrun.gpu <> - DeviceInfo: address 0:77:0.0 subdevice index 0 preset 2 sampling interval 1000us
+138 [140277324789504] INFO perfrun.sdk <> - Reading value (0) from file: /proc/sys/dev/i915/perf_stream_paranoid
+139 [140277324789504] INFO perfrun.gpu <> - DeviceInfo: address 0:77:0.0 subdevice index 1 preset 2 sampling interval 1000us
+139 [140277324789504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+139 [140277324789504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+139 [140277324789504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+139 [140277324789504] INFO perfrun.mrte <> - system-wide mode is 0
+139 [140277324789504] INFO perfrun.mrte <> - Getting  mrte profiling environment ...
+209 [140277324789504] INFO perfrun.mrte <> - INTEL_MRTE_DATA_DIR=/tmp/advixe-tmp-spatel/advixe-res-3100-4832730338707305/data.0
+209 [140277324789504] INFO perfrun.mrte <> - INTEL_MRTE_HOST_NAME=arcticus09
+209 [140277324789504] INFO perfrun.mrte <> - Data directory: /tmp/advixe-tmp-spatel/advixe-res-3100-4832730338707305/data.0
+209 [140277324789504] INFO perfrun.mrte <> - Mrte plugin is initialized
+209 [140277324789504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+209 [140277324789504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+209 [140277324789504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+209 [140277324789504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+209 [140277324789504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+209 [140277324789504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+209 [140277324789504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+209 [140277324789504] INFO perfrun.tpss <> - initialize tpss controller
+209 [140277324789504] INFO perfrun.tpss <> - configure collection mode: value = cpu:stack
+209 [140277324789504] INFO perfrun.tpss <> - configure collection mode: value = opencl|0:77:0.0
+209 [140277324789504] INFO perfrun.tpss <> - configure collection mode: value = mediasdk|0:77:0.0
+209 [140277324789504] INFO perfrun.tpss <> - configure collection mode: value = level_zero|0:77:0.0
+209 [140277324789504] INFO perfrun.tpss <> - configure collection mode: value = opencl_ex|0:77:0.0
+209 [140277324789504] INFO perfrun.tpss <> - default obj-size-min=1024
+209 [140277324789504] INFO perfrun.tpss <> - default hash-table-size=0
+209 [140277324789504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+209 [140277324789504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+209 [140277324789504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+209 [140277324789504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+209 [140277324789504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+209 [140277324789504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+209 [140277324789504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+209 [140277324789504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+209 [140277324789504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+209 [140277460386112] INFO perfrun.launcher <> - set environment variable: LD_LIBRARY_PATH = /soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/advisor/2021.3.0-prerelease/lib32/runtime:/soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/advisor/2021.3.0-prerelease/lib64/runtime:/soft/restricted/CNDA/emb/perftools/intel-md/20210819.1/lib64:/soft/libraries/khronos/loader/master-2021.07.06/lib64:/soft/restricted/CNDA/emb/libraries/intel-level-zero/api_+_loader/20210819.1/lib64:/soft/restricted/CNDA/emb/libraries/intel-gmmlib/20210819.1/lib64:/soft/restricted/CNDA/emb/libraries/intel-level-zero/compute-runtime/20210819.1/lib64:/soft/restricted/CNDA/emb/libraries/intel-level-zero/compute-runtime/20210819.1/lib64/intel-opencl:/soft/restricted/CNDA/emb/compilers/intel-igc/20210819.1/lib64:/soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/gcc-10.2.0-yudlyezca7twgd5o3wkkraur7wdbngdn/lib64:/soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/gcc-10.2.0-yudlyezca7twgd5o3wkkraur7wdbngdn/lib:/soft/restricted/CNDA/mpich/drop41.1/mpich-ofi-sockets-icc-default-ats-drop41/lib:/soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/libfabric-1.12.1-k3r6nnt6smzxbkpw6rcum2stctobd2hw/lib:/soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/rdma-core-27.1-g6ufs2hbzurtcovpifxnuzq6xvdhndm6/lib64:/soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/rdma-core-27.1-g6ufs2hbzurtcovpifxnuzq6xvdhndm6/lib:/soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/libnl-3.3.0-h7m7thfzbpu5mmbnant34owd4senj4i2/lib:/soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/hwloc-2.1.0-wvcmvls57izcjculu4ipakltyq24cgyj/lib:/soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/kokkos//lib64:/soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/ccl/2021.3.0/lib/cpu_gpu_dpcpp:/soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/debugger/10.2.0-prerelease/gdb/intel64/lib:/soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/debugger/10.2.0-prerelease/dep/lib:/soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/dal/2021.3.0-prerelease/lib/intel64:/soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/dnnl/2021.3.0-prerelease/cpu_dpcpp_gpu_dpcpp/lib:/soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/tbb/2021.3.0/lib/intel64/gcc4.8:/soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/mkl/20210821/lib/intel64:/soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/compiler/20210819/linux/compiler/lib:/soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/compiler/20210819/linux/compiler/lib/intel64_lin:/soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/compiler/20210819/linux/lib/x64:/soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/compiler/20210819/linux/lib:/home/spatel/A21/OCCA/OCCA_DPCPP/occa_9.21/occa/install_OAP_08.15.001//lib
+209 [140277460386112] INFO perfrun.launcher <> - set environment variable: INTEL_LIBITTNOTIFY32 = /soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/advisor/2021.3.0-prerelease/lib32/runtime/libittnotify_collector.so
+209 [140277460386112] INFO perfrun.launcher <> - set environment variable: INTEL_LIBITTNOTIFY64 = /soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/advisor/2021.3.0-prerelease/lib64/runtime/libittnotify_collector.so
+209 [140277460386112] INFO perfrun.launcher <> - set environment variable: INTEL_ITTNOTIFY_GROUPS = 
+209 [140277460386112] INFO perfrun.launcher <> - set environment variable: INTEL_JIT_PROFILER32 = /soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/advisor/2021.3.0-prerelease/lib32/runtime/libittnotify_collector.so
+209 [140277460386112] INFO perfrun.launcher <> - set environment variable: INTEL_JIT_PROFILER64 = /soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/advisor/2021.3.0-prerelease/lib64/runtime/libittnotify_collector.so
+209 [140277460386112] INFO perfrun.launcher <> - set environment variable: VS_PROFILER = libittnotify_collector.so
+209 [140277460386112] INFO perfrun.launcher <> - set environment variable: OMP_TOOL_LIBRARIES = /soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/advisor/2021.3.0-prerelease/lib32/runtime/libittnotify_collector.so:/soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/advisor/2021.3.0-prerelease/lib64/runtime/libittnotify_collector.so
+209 [140277460386112] INFO perfrun.launcher <> - set environment variable: ENABLE_JITPROFILING = 1
+209 [140277460386112] INFO perfrun.launcher <> - set environment variable: CL_CONFIG_USE_VTUNE = True
+209 [140277460386112] INFO perfrun.launcher <> - set environment variable: KMP_FORKJOIN_FRAMES = 0
+209 [140277460386112] INFO perfrun.launcher <> - set environment variable: KMP_FORKJOIN_FRAMES_MODE = 0
+209 [140277460386112] INFO perfrun.launcher <> - set environment variable: OMP_TOOL = disabled
+209 [140277460386112] INFO perfrun.launcher <> - set environment variable: INTEL_MRTE_DATA_DIR = /tmp/advixe-tmp-spatel/advixe-res-3100-4832730338707305/data.0
+209 [140277460386112] INFO perfrun.launcher <> - set environment variable: INTEL_MRTE_HOST_NAME = arcticus09
+209 [140277460386112] INFO perfrun.launcher <> - set environment variable: ZET_ENABLE_PROGRAM_INSTRUMENTATION = 1
+209 [140277460386112] INFO perfrun.launcher <> - set environment variable: ZET_ENABLE_API_TRACING_EXP = 1
+209 [140277460386112] INFO perfrun.launcher <> - set environment variable: ZE_ENABLE_TRACING_LAYER = 1
+209 [140277460386112] INFO perfrun.launcher <> - set environment variable: SYCL_CACHE_DISABLE_PERSISTENT = 1
+209 [140277460386112] INFO perfrun.launcher <> - RpcServer: run RPC server to handle requests
+214 [140277460386112] INFO perfrun.launcher <> - Launcher: command line to start before modification = ./axhelm 7 1 8000 NATIVE+DPCPP DPCPP
+215 [140277460386112] INFO perfrun.launcher <> - Launcher: command line to start after modification = /soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/advisor/2021.3.0-prerelease/bin64/pin -error_file /tmp/advixe-tmp-spatel/advixe-res-3100-4832730338707305/data.0/pinerr.tpsslog -detach_reattach -follow_execv -tool_load_option deepbind -t64 /soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/advisor/2021.3.0-prerelease/lib64/libtpsstool.so -t /soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/advisor/2021.3.0-prerelease/lib32/libtpsstool.so -server_name tpss_ipc.3100 -prd_dir /soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/advisor/2021.3.0-prerelease -- ./axhelm 7 1 8000 NATIVE+DPCPP DPCPP
+215 [140277460386112] INFO perfrun.launcher <> - ProcessCreator object was created
+216 [140277460386112] INFO perfrun.launcher <> - Launcher: the process was started in suspend mode
+216 [140277324789504] INFO perfrun.sdk <> - Reading value (0) from file: /proc/sys/dev/i915/perf_stream_paranoid
+217 [140277324789504] INFO perfrun.sdk <> - Reading value (0) from file: /proc/sys/dev/i915/perf_stream_paranoid
+217 [140277324789504] INFO perfrun.sdk <> - Reading value (0) from file: /proc/sys/dev/i915/perf_stream_paranoid
+217 [140277324789504] INFO perfrun.sdk <> - Reading value (0) from file: /proc/sys/dev/i915/perf_stream_paranoid
+229 [140277324789504] WARN perfrun.system <> - Folder "/sys/kernel/debug/kvm"doesn't exist, at file: vcs/perfrun1/plugins/system/src/trace_writer.cpp:730
+229 [140277324789504] WARN perfrun.system <> - Folder "/var/run/libvirt/qemu/"doesn't exist, at file: vcs/perfrun1/plugins/system/src/trace_writer.cpp:810
+240 [140277324789504] WARN perfrun.system <> - SEP tool is not available, at file: vcs/perfrun1/plugins/system/src/device_mapper.cpp:504
+240 [140277324789504] WARN perfrun.system <> - SEP driver is not available, at file: vcs/perfrun1/plugins/system/src/device_mapper.cpp:657
+240 [140277324789504] WARN perfrun.system <> - amplxe-perf tool is not available, at file: vcs/perfrun1/plugins/system/src/device_mapper.cpp:520
+240 [140277324789504] WARN perfrun.system <> - Device mapping through perf is not available on current kernel, at file: vcs/perfrun1/plugins/system/src/device_mapper.cpp:855
+242 [140277324789504] WARN perfrun.system <> - SEP tool is not available, at file: vcs/perfrun1/plugins/system/src/device_mapper.cpp:504
+242 [140277324789504] WARN perfrun.system <> - SEP driver is not available, at file: vcs/perfrun1/plugins/system/src/device_mapper.cpp:657
+242 [140277324789504] WARN perfrun.system <> - SEP tool is not available, at file: vcs/perfrun1/plugins/system/src/device_mapper.cpp:504
+242 [140277324789504] WARN perfrun.system <> - SEP driver is not available, at file: vcs/perfrun1/plugins/system/src/device_mapper.cpp:657
+242 [140277324789504] WARN perfrun.sdk <> - Failed to find xl binary on any of the system paths: /bin, /sbin, /usr/bin, /usr/sbin., at file: vcs/perfrun1/sdk/src/utils.cpp:197
+246 [140277324789504] INFO perfrun.vdso <> - Helper runtool '/soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/advisor/2021.3.0-prerelease/bin32/advixe-runss -dump-vdso -r /tmp/advixe-tmp-spatel/advixe-res-3100-4832730338707305 --tmp-dir /tmp/advixe-tmp-spatel' returned 1
+388 [140277324789504] INFO perfrun.vdso <> - Helper runtool '/soft/restricted/CNDA/sdk/2021.08.15.001/oneapi/advisor/2021.3.0-prerelease/bin64/advixe-runss -dump-vdso -r /tmp/advixe-tmp-spatel/advixe-res-3100-4832730338707305 --tmp-dir /tmp/advixe-tmp-spatel' returned 0
+388 [140277324789504] INFO perfrun.itt <> - start itt controller for pid #3105
+390 [140277324789504] INFO perfrun.sdk <> - Allocating TMU :/tmp/advixe-tmp-spatel/advixe-res-3100-4832730338707305/data.0/gen_metrics0_77_0_0_0.0.cfg
+390 [140277324789504] INFO perfrun.sdk <> - De-allocating TMU: /tmp/advixe-tmp-spatel/advixe-res-3100-4832730338707305/data.0/gen_metrics0_77_0_0_0.0.cfg
+391 [140277324789504] INFO perfrun.gpu <> - Creating main data processing loop
+391 [140277299611392] INFO perfrun.sdk <> - Allocating TMU :/tmp/advixe-tmp-spatel/advixe-res-3100-4832730338707305/data.0/gen_metrics0_77_0_0_0.0.vtss
+391 [140277299611392] INFO perfrun.gpu <> - IO stream opening, timer period: 1000000, buffer size: 0 subDevice 0 tile 0
+392 [140277324789504] INFO perfrun.sdk <> - Allocating TMU :/tmp/advixe-tmp-spatel/advixe-res-3100-4832730338707305/data.0/gen_metrics0_77_0_0_1.0.cfg
+392 [140277324789504] INFO perfrun.sdk <> - De-allocating TMU: /tmp/advixe-tmp-spatel/advixe-res-3100-4832730338707305/data.0/gen_metrics0_77_0_0_1.0.cfg
+392 [140277324789504] INFO perfrun.gpu <> - Creating main data processing loop
+392 [140277291218688] INFO perfrun.sdk <> - Allocating TMU :/tmp/advixe-tmp-spatel/advixe-res-3100-4832730338707305/data.0/gen_metrics0_77_0_0_1.0.vtss
+392 [140277324789504] INFO perfrun.tpss <> - start tpss controller for pid #3105
+392 [140277291218688] INFO perfrun.gpu <> - IO stream opening, timer period: 1000000, buffer size: 0 subDevice 1 tile 1
+396 [140277299611392] INFO perfrun.gpu <> - IO stream opened, timer period: 655360, buffer size: 16777216
+399 [140277291218688] INFO perfrun.gpu <> - IO stream opened, timer period: 655360, buffer size: 16777216
+443 [140277460386112] INFO perfrun.launcher <> - Launcher: all plugins were started
+443 [140277460386112] INFO perfrun.launcher <> - DirectoryMonitor object was created
+443 [140277460386112] INFO perfrun.launcher <> - DirectoryMonitor: a callback was added
+443 [140277460386112] INFO perfrun.launcher <> - DirectoryMonitor was started with pingTime = 1000
+443 [140277460386112] INFO perfrun.launcher <> - DeadlineTimer is going to be constructed
+443 [140277460386112] INFO perfrun.launcher <> - DeadlineTimer: a callback was added
+450 [140277460386112] INFO perfrun.launcher <> - Launcher: resume the profiled application and  wait its termination or stop command
+24249 [140277460386112] INFO perfrun.launcher <> - Launcher: the profiled application was terminated  with exit code = 0
+24355 [140277324789504] INFO perfrun.itt <> - stop itt controller
+24355 [140277324789504] INFO perfrun.itt <> - detach itt controller
+24355 [140277324789504] INFO perfrun.gpu <> - Waiting for data collection thread to finish
+24378 [140277299611392] INFO perfrun.sdk <> - De-allocating TMU: /tmp/advixe-tmp-spatel/advixe-res-3100-4832730338707305/data.0/gen_metrics0_77_0_0_0.0.vtss
+24378 [140277299611392] INFO perfrun.gpu <> - Data collection routine finished
+24378 [140277324789504] INFO perfrun.gpu <> - Data collection thread finished, shutting down the session
+24379 [140277324789504] INFO perfrun.gpu <> - Waiting for data collection thread to finish
+24394 [140277291218688] INFO perfrun.sdk <> - De-allocating TMU: /tmp/advixe-tmp-spatel/advixe-res-3100-4832730338707305/data.0/gen_metrics0_77_0_0_1.0.vtss
+24394 [140277291218688] INFO perfrun.gpu <> - Data collection routine finished
+24395 [140277324789504] INFO perfrun.gpu <> - Data collection thread finished, shutting down the session
+24395 [140277324789504] INFO perfrun.tpss <> - stop tpss controller
+24395 [140277324789504] INFO perfrun.sdk <> - Reading value (0) from file: /proc/sys/dev/i915/perf_stream_paranoid
+24395 [140277324789504] INFO perfrun.sdk <> - Reading value (0) from file: /proc/sys/dev/i915/perf_stream_paranoid
+24396 [140277324789504] INFO perfrun.sdk <> - Reading value (0) from file: /proc/sys/dev/i915/perf_stream_paranoid
+24396 [140277324789504] INFO perfrun.sdk <> - Reading value (0) from file: /proc/sys/dev/i915/perf_stream_paranoid
+24396 [140277324789504] INFO perfrun.sdk <> - De-allocating TMU: /tmp/advixe-tmp-spatel/advixe-res-3100-4832730338707305/data.0/systemcollector-3100-arcticus09.sc
+24396 [140277324789504] INFO perfrun.system <> - closed the system trace file: /tmp/advixe-tmp-spatel/advixe-res-3100-4832730338707305/data.0/systemcollector-3100-arcticus09.sc
+24396 [140277460386112] INFO perfrun.launcher <> - Launcher: all plugins were stopped.
+24396 [140277460386112] INFO perfrun.launcher <> - DeadlineTimer is going to be destroyed
+24396 [140277460386112] INFO perfrun.launcher <> - DeadlineTimer was destroyed
+24396 [140277460386112] INFO perfrun.launcher <> - DirectoryMonitor object was destroyed
+24396 [140277460386112] WARN perfrun.launcher <> - Stop command is ignored because it is received when collection is already stopped, at file: vcs/perfrun1/launcher/src/command_handler.cpp:212
+25281 [140277460386112] INFO perfrun.launcher <> - Application exit code: 0
+25281 [140277460386112] INFO perfrun.launcher <> - Exit code: 0
