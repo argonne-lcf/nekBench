@@ -11,7 +11,7 @@ on deformed hexhedral spectral elements where A is the Laplace operator.
 # Usage
 
 ```
-./axhelm N Ndim numElements [NATIVE|OKL]+SERIAL|CUDA|HIP|OPENCL CPU|VOLTA [BKmode] [nRepetitions] [kernelVersion]
+./axhelm N Ndim numElements [NATIVE|OKL]+SERIAL|DPCPP|CUDA|HIP|OPENCL CPU|VOLTA|DPCPP [BKmode] [nRepetitions] [kernelVersion]
 ```
 Tuned kernels for the following architectures are available:
 * VOLTA (NVidia Pascal, Volta or Turing)
@@ -19,6 +19,11 @@ Tuned kernels for the following architectures are available:
 
 # Examples
 Here a few examples how to run the benchmark for 2000 elements with a polynomial degree 7
+
+### Single Intel-device, native dpcpp
+```
+>./axhelm 7 1 8000 NATIVE+DPCPP DPCPP
+```
 
 ### Single Nvidia V100
 ```
