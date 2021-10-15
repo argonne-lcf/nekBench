@@ -15,9 +15,12 @@ The code uses the [CEED](https://ceed.exascaleproject.org/) software products [O
 
 ## Installation
 
-The suite can be built using 
+This code requires the main branch of [OCCA](https://github.com/libocca/occa). Please clone and build. For now, please disregard the OCCA repo provided in the 3rdparty directory of this repo. 
+
+
+The suite can be built using cmake. please use the cmake driver script as given by
 ```
-make <INSTALLDIR=$HOME/nb>
+sh build.sh
 ```
 Please edit the makefile to customize build settings.
 
