@@ -1,3 +1,0 @@
-         Compute Task             Time     Calls   Active   Stalled    Idle    EU Occupancy   Threads Started   
-________________________________________________________________________________________________________________
-axhelm_bk_v0::{lambda(cl::s...    0.182s     101    25.5%     68.3%     6.2%          93.9%         3,082,856   
