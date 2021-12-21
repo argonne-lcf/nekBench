@@ -87,38 +87,38 @@
       s_wx[t] = (id < N) ? (w[id] * x[id]) : 0.f;
     }
 
-    @barrier("local");
+    @barrier();
 
 #if p_blockSize > 512
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 512) s_wx[t] += s_wx[t + 512];
-    @barrier("local");
+    @barrier();
 #endif
 
 #if p_blockSize > 256
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 256) s_wx[t] += s_wx[t + 256];
-    @barrier("local");
+    @barrier();
 #endif
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 128) s_wx[t] += s_wx[t + 128];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 64) s_wx[t] += s_wx[t + 64];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 32) s_wx[t] += s_wx[t + 32];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 16) s_wx[t] += s_wx[t + 16];
-    //    @barrier("local");
+    //    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t <  8) s_wx[t] += s_wx[t +  8];
-    //    @barrier("local");
+    //    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t <  4) s_wx[t] += s_wx[t +  4];
-    //    @barrier("local");
+    //    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t <  2) s_wx[t] += s_wx[t +  2];
-    //    @barrier("local");
+    //    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t <  1) wx[b] = s_wx[0] + s_wx[1];
   }
@@ -146,38 +146,38 @@
       s_wxx[t] = xid * xid;
     }
 
-    @barrier("local");
+    @barrier();
 
 #if p_blockSize > 512
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 512) s_wxx[t] += s_wxx[t + 512];
-    @barrier("local");
+    @barrier();
 #endif
 
 #if p_blockSize > 256
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 256) s_wxx[t] += s_wxx[t + 256];
-    @barrier("local");
+    @barrier();
 #endif
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 128) s_wxx[t] += s_wxx[t + 128];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 64) s_wxx[t] += s_wxx[t + 64];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 32) s_wxx[t] += s_wxx[t + 32];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 16) s_wxx[t] += s_wxx[t + 16];
-    //    @barrier("local");
+    //    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t <  8) s_wxx[t] += s_wxx[t +  8];
-    //    @barrier("local");
+    //    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t <  4) s_wxx[t] += s_wxx[t +  4];
-    //    @barrier("local");
+    //    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t <  2) s_wxx[t] += s_wxx[t +  2];
-    //    @barrier("local");
+    //    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t <  1) xx[b] = s_wxx[0] + s_wxx[1];
   }
@@ -229,38 +229,38 @@
       s_sx[t] = res;
     }
 
-    @barrier("local");
+    @barrier();
 
 #if p_blockSize > 512
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 512) s_sx[t] += s_sx[t + 512];
-    @barrier("local");
+    @barrier();
 #endif
 
 #if p_blockSize > 256
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 256) s_sx[t] += s_sx[t + 256];
-    @barrier("local");
+    @barrier();
 #endif
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 128) s_sx[t] += s_sx[t + 128];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 64) s_sx[t] += s_sx[t + 64];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 32) s_sx[t] += s_sx[t + 32];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 16) s_sx[t] += s_sx[t + 16];
-    //    @barrier("local");
+    //    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t <  8) s_sx[t] += s_sx[t +  8];
-    //    @barrier("local");
+    //    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t <  4) s_sx[t] += s_sx[t +  4];
-    //    @barrier("local");
+    //    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t <  2) s_sx[t] += s_sx[t +  2];
-    //    @barrier("local");
+    //    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t <  1) sx[b] = s_sx[0] + s_sx[1];
   }
@@ -281,21 +281,21 @@
       s_wx2[t] = (id < N) ? w[id] * x[id] * x[id] : 0.f;
     }
 
-    @barrier("local");
+    @barrier();
     for(int t = 0; t < B; ++t; @inner(0)) if(t < 128) s_wx2[t] += s_wx2[t + 128];
-    @barrier("local");
+    @barrier();
     for(int t = 0; t < B; ++t; @inner(0)) if(t < 64) s_wx2[t] += s_wx2[t + 64];
-    @barrier("local");
+    @barrier();
     for(int t = 0; t < B; ++t; @inner(0)) if(t < 32) s_wx2[t] += s_wx2[t + 32];
-    @barrier("local");
+    @barrier();
     for(int t = 0; t < B; ++t; @inner(0)) if(t < 16) s_wx2[t] += s_wx2[t + 16];
-    @barrier("local");
+    @barrier();
     for(int t = 0; t < B; ++t; @inner(0)) if(t <  8) s_wx2[t] += s_wx2[t +  8];
-    @barrier("local");
+    @barrier();
     for(int t = 0; t < B; ++t; @inner(0)) if(t <  4) s_wx2[t] += s_wx2[t +  4];
-    @barrier("local");
+    @barrier();
     for(int t = 0; t < B; ++t; @inner(0)) if(t <  2) s_wx2[t] += s_wx2[t +  2];
-    @barrier("local");
+    @barrier();
     for(int t = 0; t < B; ++t; @inner(0)) if(t <  1) wx2[b] = s_wx2[0] + s_wx2[1];
   }
 }
@@ -317,21 +317,21 @@
 
 #if 1
 
-    //    @barrier("local");
+    //    @barrier();
 #if p_blockSize > 512
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 512) s_wxy[t] += s_wxy[t + 512];
-    //    @barrier("local");
+    //    @barrier();
 #endif
 #if p_blockSize > 256
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 256) s_wxy[t] += s_wxy[t + 256];
-    //    @barrier("local");
+    //    @barrier();
 #endif
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 128) s_wxy[t] += s_wxy[t + 128];
-    //    @barrier("local");
+    //    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 64) s_wxy[t] += s_wxy[t + 64];
-    //    barrier("local");
+    //    barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 32) s_wxy[t] += s_wxy[t + 32];
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 16) s_wxy[t] += s_wxy[t + 16];
@@ -384,21 +384,21 @@
       s_wxy[t] = res;
     }
 
-    @barrier("local");
+    @barrier();
 #if p_blockSize > 512
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 512) s_wxy[t] += s_wxy[t + 512];
-    @barrier("local");
+    @barrier();
 #endif
 #if p_blockSize > 256
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 256) s_wxy[t] += s_wxy[t + 256];
-    @barrier("local");
+    @barrier();
 #endif
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 128) s_wxy[t] += s_wxy[t + 128];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 64) s_wxy[t] += s_wxy[t + 64];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 32) s_wxy[t] += s_wxy[t + 32];
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 16) s_wxy[t] += s_wxy[t + 16];
@@ -431,21 +431,21 @@
       s_wxy[t] = res;
     }
 
-    @barrier("local");
+    @barrier();
 #if p_blockSize > 512
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 512) s_wxy[t] += s_wxy[t + 512];
-    @barrier("local");
+    @barrier();
 #endif
 #if p_blockSize > 256
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 256) s_wxy[t] += s_wxy[t + 256];
-    @barrier("local");
+    @barrier();
 #endif
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 128) s_wxy[t] += s_wxy[t + 128];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 64) s_wxy[t] += s_wxy[t + 64];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 32) s_wxy[t] += s_wxy[t + 32];
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 16) s_wxy[t] += s_wxy[t + 16];
@@ -472,21 +472,21 @@
       s_wxx[t] = wid * xid * xid;
     }
 
-    @barrier("local");
+    @barrier();
 #if p_blockSize > 512
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 512) s_wxx[t] += s_wxx[t + 512];
-    @barrier("local");
+    @barrier();
 #endif
 #if p_blockSize > 256
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 256) s_wxx[t] += s_wxx[t + 256];
-    @barrier("local");
+    @barrier();
 #endif
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 128) s_wxx[t] += s_wxx[t + 128];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 64) s_wxx[t] += s_wxx[t + 64];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 32) s_wxx[t] += s_wxx[t + 32];
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 16) s_wxx[t] += s_wxx[t + 16];
@@ -519,21 +519,21 @@
       s_wxx[t] = res;
     }
 
-    @barrier("local");
+    @barrier();
 #if p_blockSize > 512
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 512) s_wxx[t] += s_wxx[t + 512];
-    @barrier("local");
+    @barrier();
 #endif
 #if p_blockSize > 256
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 256) s_wxx[t] += s_wxx[t + 256];
-    @barrier("local");
+    @barrier();
 #endif
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 128) s_wxx[t] += s_wxx[t + 128];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 64) s_wxx[t] += s_wxx[t + 64];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 32) s_wxx[t] += s_wxx[t + 32];
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 16) s_wxx[t] += s_wxx[t + 16];
@@ -569,21 +569,21 @@
       s_wxx[t] = res;
     }
 
-    @barrier("local");
+    @barrier();
 #if p_blockSize > 512
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 512) s_wxx[t] += s_wxx[t + 512];
-    @barrier("local");
+    @barrier();
 #endif
 #if p_blockSize > 256
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 256) s_wxx[t] += s_wxx[t + 256];
-    @barrier("local");
+    @barrier();
 #endif
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 128) s_wxx[t] += s_wxx[t + 128];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 64) s_wxx[t] += s_wxx[t + 64];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 32) s_wxx[t] += s_wxx[t + 32];
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 16) s_wxx[t] += s_wxx[t + 16];
@@ -712,7 +712,7 @@
       s_wxy[t+1*p_blockSize] = xx;  
     }
 
-    @barrier("local");
+    @barrier();
 
 #if p_blockSize>512
     
@@ -722,7 +722,7 @@
         s_wxy[t+1*p_blockSize] += s_wxy[t+1*p_blockSize+512];
       }
     }
-    @barrier("local");
+    @barrier();
 
 #endif
 #if p_blockSize>256
@@ -733,7 +733,7 @@
         s_wxy[t+1*p_blockSize] += s_wxy[t+1*p_blockSize+256];
       }
     }
-    @barrier("local");
+    @barrier();
 
 #endif
 
@@ -743,7 +743,7 @@
         s_wxy[t+1*p_blockSize] += s_wxy[t+1*p_blockSize+128];
       }
     }
-    @barrier("local");
+    @barrier();
 
     for(int t=0;t<p_blockSize;++t;@inner(0)) {
       if(t<64) {
@@ -751,7 +751,7 @@
         s_wxy[t+1*p_blockSize] += s_wxy[t+1*p_blockSize+64];
       }
     }
-    @barrier("local");
+    @barrier();
 
     for(int t=0;t<p_blockSize;++t;@inner(0)) {
       if(t<32) {

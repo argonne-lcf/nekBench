@@ -67,7 +67,7 @@
           }
         }
       }
-      @barrier("local");
+      @barrier();
 
       // loop over slabs
       for(int j = 0; j < p_Nq; ++j; @inner(1))
@@ -102,7 +102,7 @@
           }
           Aq[id] = r_q;
         }
-      @barrier("local");
+      @barrier();
     }
   }
 }

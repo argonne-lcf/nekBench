@@ -23,7 +23,7 @@
       r_x = s[0];
     }
 
-    @barrier("local");
+    @barrier();
 
 #pragma unroll 128
     for(int j = 0; j < 128; ++j) {
@@ -32,7 +32,7 @@
       }
     }
 
-    @barrier("local");
+    @barrier();
 
     for(int i = 0; i < 128; ++i; @inner(0)) {
       const int id = i + b*128;

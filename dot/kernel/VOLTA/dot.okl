@@ -38,21 +38,21 @@
       s_wxy[t] = (id < N) ? w[id] * x[id] * y[id] : 0.f;
     }
 
-    @barrier("local");
+    @barrier();
 #if p_blockSize > 512
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 512) s_wxy[t] += s_wxy[t + 512];
-    @barrier("local");
+    @barrier();
 #endif
 #if p_blockSize > 256
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 256) s_wxy[t] += s_wxy[t + 256];
-    @barrier("local");
+    @barrier();
 #endif
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 128) s_wxy[t] += s_wxy[t + 128];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 64) s_wxy[t] += s_wxy[t + 64];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 32) s_wxy[t] += s_wxy[t + 32];
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 16) s_wxy[t] += s_wxy[t + 16];
@@ -84,21 +84,21 @@
       s_wxy[t] = res;
     }
 
-    @barrier("local");
+    @barrier();
 #if p_blockSize > 512
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 512) s_wxy[t] += s_wxy[t + 512];
-    @barrier("local");
+    @barrier();
 #endif
 #if p_blockSize > 256
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 256) s_wxy[t] += s_wxy[t + 256];
-    @barrier("local");
+    @barrier();
 #endif
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 128) s_wxy[t] += s_wxy[t + 128];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 64) s_wxy[t] += s_wxy[t + 64];
-    @barrier("local");
+    @barrier();
 
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 32) s_wxy[t] += s_wxy[t + 32];
     for(int t = 0; t < p_blockSize; ++t; @inner(0)) if(t < 16) s_wxy[t] += s_wxy[t + 16];
@@ -136,7 +136,7 @@
         s_a[g][s] = wgs * xgs * ygs;
       }
 
-    @barrier("local");
+    @barrier();
 
     for(int g = 0; g < G; ++g; @inner(1))
       for(int s = 0; s < S; ++s; @inner(0)) {
@@ -149,7 +149,7 @@
         if(s == 0) s_b[g] = s_a[g][0] + s_a[g][1];
       }
 
-    @barrier("local");
+    @barrier();
 
     for(int g = 0; g < G; ++g; @inner(1))
       for(int s = 0; s < S; ++s; @inner(0))
@@ -159,7 +159,7 @@
           if(s == 0) s_b[s] += s_b[s + 1];
         }
 
-    @barrier("local");
+    @barrier();
 
     for(int g = 0; g < G; ++g; @inner(1))
       for(int s = 0; s < S; ++s; @inner(0))
