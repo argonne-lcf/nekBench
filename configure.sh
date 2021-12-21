@@ -2,21 +2,19 @@
 set -x
 #-----
 export CRAYPE_LINK_TYPE=dynamic
-export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${NVIDIA_PATH}/cuda/lib64:${NVIDIA_PATH}/compilers/lib
-
 BUILD_TYPE=Release
-OCCA_ROOT="/home/krowe/occa/install"
-PREFIX_PATHS="${NVIDIA_PATH}/cuda;${NVIDIA_PATH}/compilers/lib;${OCCA_ROOT}"
 
-MPICC=`which cc`
-MPIFC=`which ftn`
+EXTERNAL_BLASLAPACK="ON"
+EXTERNAL_OCCA="ON"
+OCCA_DIR=
+PREFIX_PATHS="${OCCA_DIR}"
 
-CXX=`which CC`
-CC=`which cc`
-FC=`which ftn`
+CC=nvc
+CXX=nvc++
+FC=nvfortran
 
-# CXXFLAGS="-pgf90libs"
-ENABLE_OPENMP="OFF"
+MPICC=cc
+MPIFC=ftn
 
 # Default build parameters
 : ${BUILD_DIR:=`pwd`/build}
@@ -30,9 +28,17 @@ ENABLE_OPENMP="OFF"
 : ${MPICC:="mpicc"}
 : ${MPIFC:="mpif77"}
 
-: ${EXTERNAL_BLASLAPACK:="ON"}
+: ${EXTERNAL_BLASLAPACK:="OFF"}
+: ${EXTERNAL_OCCA:="OFF"}
 
-rm -rf ${BUILD_DIR} ${INSTALL_DIR}
+# OCCA Configuration
+: ${ENABLE_DPCPP:="ON"}
+: ${ENABLE_OPENCL:="ON"}
+: ${ENABLE_CUDA:="ON"}
+: ${ENABLE_HIP="ON"}
+: ${ENABLE_OPENMP="OFF"}
+: ${ENABLE_METAL="OFF"}
+: ${ENABLE_MPI="OFF"}
 
 cmake -S . -B ${BUILD_DIR} \
   -DCMAKE_BUILD_TYPE=${BUILD_TYPE} \
@@ -44,7 +50,12 @@ cmake -S . -B ${BUILD_DIR} \
   -DCMAKE_CXX_FLAGS="${CXXFLAGS}" \
   -DMPI_C_COMPILER=${MPICC} \
   -DMPI_Fortran_COMPILER=${MPIFC} \
-  -DEXTERNAL_BLASLAPACK=${EXTERNAL_BLASLAPACK}
-
-#cmake --build ${BUILD_DIR} --parallel 32 && \
-#cmake --install ${BUILD_DIR} --prefix ${INSTALL_DIR}
+  -DEXTERNAL_BLASLAPACK=${EXTERNAL_BLASLAPACK} \
+  -DEXTERNAL_OCCA=${EXTERNAL_OCCA} \
+  -DENABLE_DPCPP=${ENABLE_DPCPP} \
+  -DENABLE_OPENCL=${ENABLE_OPENCL} \
+  -DENABLE_CUDA=${ENABLE_CUDA} \
+  -DENABLE_HIP=${ENABLE_HIP} \
+  -DENABLE_OPENMP=${ENABLE_OPENMP} \
+  -DENABLE_METAL=${ENABLE_METAL} \
+  -DENABLE_MPI=${ENABLE_MPI}

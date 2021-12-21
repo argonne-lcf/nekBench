@@ -2232,7 +2232,7 @@ void meshPhysicalNodesHex3D(mesh3D* mesh)
   }
 }
 
-void meshChooseBoxDimensions(hlong Nelements, int* NX, int* NY, int* NZ)
+void meshChooseBoxDimensions(hlong Nelements, dlong* NX, dlong* NY, dlong* NZ)
 {
   int Ncr = pow(Nelements, 1. / 3);
 
@@ -2257,9 +2257,9 @@ void meshChooseBoxDimensions(hlong Nelements, int* NX, int* NY, int* NZ)
         }
       }
 
-  *NX = bestNX;
-  *NY = bestNY;
-  *NZ = bestNZ;
+  *NX = static_cast<dlong>(bestNX);
+  *NY = static_cast<dlong>(bestNY);
+  *NZ = static_cast<dlong>(bestNZ);
 }
 
 mesh3D* meshSetupBoxHex3D(int N, int cubN, setupAide &options)
@@ -2300,13 +2300,19 @@ mesh3D* meshSetupBoxHex3D(int N, int cubN, setupAide &options)
     int tmpNp = (N + 1) * (N + 1) * (N + 1);
     hlong NelementsTarget = (NdofsTarget + tmpNp - 1) / tmpNp;
     meshChooseBoxDimensions(NelementsTarget, &NX, &NY, &NZ);
-    printf("TARGET NODES = %d, ACTUAL NODES = %d, NELEMENTS = [%d,%d,%d=>%d]\n",
-           NdofsTarget,
-           NX * NY * NZ * tmpNp,
-           NX,
-           NY,
-           NZ,
-           NX * NY * NZ);
+    // printf("TARGET NODES = %d, ACTUAL NODES = %d, NELEMENTS = [%d,%d,%d=>%d]\n",
+    //        NdofsTarget,
+    //        NX * NY * NZ * tmpNp,
+    //        NX,
+    //        NY,
+    //        NZ,
+    //        NX * NY * NZ);
+    std::cout 
+      << "TARGET NODES =" << NdofsTarget
+      << " ACTUAL NODES = " << (NX*NY*NZ*tmpNp)
+      << " NELEMENTS = [" << NX << "," << NY << "," << NZ << "=>" << (NX*NY*NZ)
+    <<std::endl;
+
   }else{
     options.getArgs("BOX NX", NX);
     options.getArgs("BOX NY", NY);
@@ -3261,26 +3267,40 @@ void occaDeviceConfig(mesh_t* mesh, setupAide &options)
   //device_id = device_id % 8;
   //device_id = device_id % 4;
 
-  occa::properties deviceProps;
-
-  if(options.compareArgs("THREAD MODEL", "CUDA")) {
-    sprintf(deviceConfig, "mode: 'CUDA', device_id: %d", device_id);
-  }else if(options.compareArgs("THREAD MODEL", "HIP")) {
-    sprintf(deviceConfig, "mode: 'HIP', device_id: %d",device_id);
-  }else if(options.compareArgs("THREAD MODEL", "OPENCL")) {
-    int plat;
-    options.getArgs("PLATFORM NUMBER", plat);
-    sprintf(deviceConfig, "mode: 'OpenCL', device_id: %d, platform_id: %d", device_id, plat);
-  }else if(options.compareArgs("THREAD MODEL", "OPENMP")) {
-    sprintf(deviceConfig, "mode: 'OpenMP' ");
-  }else {
+  if (options.compareArgs("THREAD MODEL", "CUDA"))
+  {
+    sprintf(deviceConfig, "{mode: 'CUDA', device_id: %d}", device_id);
+  }
+  else if (options.compareArgs("THREAD MODEL", "HIP"))
+  {
+    sprintf(deviceConfig, "{mode: 'HIP', device_id: %d}",device_id);
+  }
+  else if (options.compareArgs("THREAD MODEL", "OPENCL"))
+  {
+    int platform_id{};
+    options.getArgs("PLATFORM NUMBER", platform_id);
+    sprintf(deviceConfig, "{mode: 'OpenCL', device_id: %d, platform_id: %d}", device_id, platform_id);
+  }
+  else if (options.compareArgs("THREAD MODEL", "DPCPP"))
+  {
+    int platform_id{};
+    options.getArgs("PLATFORM NUMBER", platform_id);
+    sprintf(deviceConfig, "{mode: 'dpcpp', device_id: %d, platform_id: %d}", device_id, platform_id);
+  }
+  else if (options.compareArgs("THREAD MODEL", "OPENMP"))
+  {
+    sprintf(deviceConfig, "{mode: 'OpenMP}' ");
+  }
+  else
+  {
     //sprintf(deviceConfig, "mode: 'Serial', memory: { use_host_pointer: true }");
-    sprintf(deviceConfig, "mode: 'Serial' ");
+    sprintf(deviceConfig, "{mode: 'Serial'}");
     omp_set_num_threads(1);
   }
 
-  mesh->device.setup((std::string)deviceConfig);
-  if(rank == 0)
+  std::string deviceConfigString(deviceConfig);
+  mesh->device.setup(deviceConfigString);
+  if (rank == 0)
     std::cout << "active occa mode: " << mesh->device.mode() << "\n";
 
   //occa::env::OCCA_MEM_BYTE_ALIGN = USE_OCCA_MEM_BYTE_ALIGN;
@@ -3305,7 +3325,7 @@ void* occaHostMallocPinned(occa::device &device,
   //  void *ptr = device.malloc(size, "mapped: true").ptr();
 
   occa::properties props;
-  props["mapped"] = true;
+  props["host"] = true;
 
   h_mem =  device.malloc(size, props);
 

@@ -6,12 +6,11 @@ static void setCompilerFlags(occa::device device, occa::properties &kernelInfo)
     kernelInfo["compiler_flags"] += " --prec-div=false ";
     kernelInfo["compiler_flags"] += " --prec-sqrt=false ";
     kernelInfo["compiler_flags"] += " --use_fast_math ";
-    kernelInfo["compiler_flags"] += " --fmad=false ";
+    kernelInfo["compiler_flags"] += " --fmad=false "; //Is this intentional?
   }
 
   if(device.mode() == "OpenCL") { // add backend compiler optimization for OPENCL
     kernelInfo["compiler_flags"] += " -cl-std=CL2.0 ";
-    kernelInfo["compiler_flags"] += " -cl-strict-aliasing ";
     kernelInfo["compiler_flags"] += " -cl-mad-enable ";
     kernelInfo["compiler_flags"] += " -cl-no-signed-zeros ";
     kernelInfo["compiler_flags"] += " -cl-unsafe-math-optimizations ";

@@ -32,6 +32,19 @@ int main(int argc, char** argv)
     exit(1);
   }
 
+  int size;
+  MPI_Comm_size(MPI_COMM_WORLD, &size);
+  for (int currRank = 0; currRank < size; ++currRank)
+    if (rank == currRank)
+      printf("rank %d: pid<%d>\n", rank, ::getpid());
+  fflush(stdout);
+  MPI_Barrier(MPI_COMM_WORLD);
+  if (rank == 0)
+    std::cout << "Attach debugger, then press enter to continue\n";
+  if (rank == 0)
+    std::cin.get();
+  MPI_Barrier(MPI_COMM_WORLD);
+
   const int N = std::stoi(argv[1]);
   const int NX = std::stoi(argv[2]);
   const int NY = std::stoi(argv[3]);
@@ -85,6 +98,7 @@ int main(int argc, char** argv)
     deviceNumber.assign(strdup(argv[12]));
     options.setArgs("DEVICE NUMBER", deviceNumber);
   }
+  options.setArgs("PLATFORM NUMBER", "1");
 
   options.setArgs("BOX NX", std::to_string(NX));
   options.setArgs("BOX NY", std::to_string(NY));
@@ -301,6 +315,7 @@ int main(int argc, char** argv)
       cout << "  avg elapsed time dummy kernel : " << etime[6] << " s\n";
     }
   }
+  MPI_Barrier(MPI_COMM_WORLD);
   MPI_Finalize();
   return 0;
 }

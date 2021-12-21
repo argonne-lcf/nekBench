@@ -161,7 +161,8 @@ oogs_t* oogs::setup(ogs_t *ogs, int nVec, dlong stride, const char *type, std::f
   }
 
   occa::properties props;
-  props["mapped"] = true;
+  // props["mapped"] = true;
+  props["host"] = true;
 
   gs->h_buffSend = ogs->device.malloc(pwd->comm[send].total*unit_size, props);
   gs->bufSend = (unsigned char*)gs->h_buffSend.ptr(); 

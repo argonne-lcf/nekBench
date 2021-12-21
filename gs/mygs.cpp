@@ -193,7 +193,7 @@ void mygsSetup(ogs_t* ogs)
 
   if(Nhalo == 0) return;
   occa::properties props;
-  props["mapped"] = true;
+  props["host"] = true;
 
   h_buffSend = ogs->device.malloc(pwd->comm[send].total * unit_size, props);
   bufSend = (unsigned char*)h_buffSend.ptr();
@@ -466,7 +466,7 @@ void mygsStart(occa::memory o_v, const char* type, const char* op, ogs_t* ogs, o
       if (ogs::o_haloBuf.size()) ogs::o_haloBuf.free();
 
       occa::properties props;
-      props["mapped"] = true;
+      props["host"] = true;
       ogs::o_haloBuf = ogs->device.malloc(ogs->NhaloGather * Nbytes, props);
       ogs::haloBuf = ogs::o_haloBuf.ptr();
     }

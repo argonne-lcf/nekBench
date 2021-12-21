@@ -167,7 +167,7 @@ void solveSetup(BP_t* BP, occa::properties &kernelInfo)
   }
 
   occa::properties props = kernelInfo;
-  props["mapped"] = true;
+  props["host"] = true;
   p_tmp = mesh->device.malloc(2*Nblock * sizeof(dfloat), props);
   BP->tmp  = (dfloat*)p_tmp.ptr();
   BP->o_tmp = mesh->device.malloc(2*Nblock * sizeof(dfloat), BP->tmp);

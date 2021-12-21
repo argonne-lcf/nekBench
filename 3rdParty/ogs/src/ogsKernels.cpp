@@ -174,7 +174,20 @@ void ogs::initKernels(MPI_Comm comm, occa::device device) {
    ogs::kernelInfo["defines/" "dlong"]="int";
   }
   if(sizeof(dlong)==8){
-   ogs::kernelInfo["defines/" "dlong"]="long long int";
+    if("OpenCL" == device.mode())
+      ogs::kernelInfo["defines/" "dlong"]="long int";
+    else
+      ogs::kernelInfo["defines/" "dlong"]="long long int";
+  }
+
+  if(sizeof(hlong)==4){
+   ogs::kernelInfo["defines/" "hlong"]="int";
+  }
+  if(sizeof(hlong)==8){
+    if("OpenCL" == device.mode())
+      ogs::kernelInfo["defines/" "hlong"]="long int";
+    else
+      ogs::kernelInfo["defines/" "hlong"]="long long int";
   }
 
   if(sizeof(dfloat) == sizeof(double)){
@@ -187,17 +200,18 @@ void ogs::initKernels(MPI_Comm comm, occa::device device) {
   }
 
 
-  // if(device.mode()=="OpenCL"){
-  //  //ogs::kernelInfo["compiler_flags"] += "-cl-opt-disable";
-  // }
+  if(device.mode()=="OpenCL"){
+   //ogs::kernelInfo["compiler_flags"] += "-cl-opt-disable";
 
-  // if(device.mode()=="CUDA"){ // add backend compiler optimization for CUDA
-  //  ogs::kernelInfo["compiler_flags"] += " --ftz=true ";
-  //  ogs::kernelInfo["compiler_flags"] += " --prec-div=false ";
-  //  ogs::kernelInfo["compiler_flags"] += " --prec-sqrt=false ";
-  //  ogs::kernelInfo["compiler_flags"] += " --use_fast_math ";
-  //  ogs::kernelInfo["compiler_flags"] += " --fmad=true "; // compiler option for cuda
-  // }
+  }
+
+  if(device.mode()=="CUDA"){ // add backend compiler optimization for CUDA
+   ogs::kernelInfo["compiler_flags"] += " --ftz=true ";
+   ogs::kernelInfo["compiler_flags"] += " --prec-div=false ";
+   ogs::kernelInfo["compiler_flags"] += " --prec-sqrt=false ";
+   ogs::kernelInfo["compiler_flags"] += " --use_fast_math ";
+   ogs::kernelInfo["compiler_flags"] += " --fmad=true "; // compiler option for cuda
+  }
 
   if (rank==0) printf("Compiling GatherScatter Kernels...");fflush(stdout);
 

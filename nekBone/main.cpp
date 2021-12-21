@@ -197,10 +197,11 @@ int main(int argc, char** argv)
       int knlId = 0;
       options.getArgs("KERNEL ID", knlId);
 
-      int Nthreads{1};
-  #ifdef _OPENMP
+      int Nthreads{1}; 
+#ifdef _OPENMP
       Nthreads = omp_get_max_threads();
-  #endif
+#endif
+
       cout << "\nsummary\n"
            << "\tMPItasks           : " << mesh->size << "\n"
            << "\tpolyN              : " << N << "\n"

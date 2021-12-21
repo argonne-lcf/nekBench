@@ -115,6 +115,7 @@ SOFTWARE.
 #include <functional>
 #include <math.h>
 #include <stdlib.h>
+#include <cstring>
 #include <occa.hpp>
 
 #include "mpi.h"

@@ -36,19 +36,33 @@ static occa::kernel loadAxKernel(occa::device device, const std::string threadMo
 
   std::string root(DBP);
   std::string filename = root + "kernel/" + arch + "/axhelm";
-  for (int r = 0; r < 2; r++) {
-    if ((r == 0 && rank == 0) || (r == 1 && rank > 0)) {
-      if(strstr(threadModel.c_str(), "NATIVE+CUDA")) {
+  for (int r = 0; r < 2; r++) 
+  {
+    if ((r == 0 && rank == 0) || (r == 1 && rank > 0)) 
+    {
+      if(strstr(threadModel.c_str(), "NATIVE+CUDA")) 
+      {
         props["okl/enabled"] = false;
         axKernel = device.buildKernel(filename + ".cu", kernelName, props);
         axKernel.setRunDims(Nelements, Nq * Nq);
-      } else if(strstr(threadModel.c_str(), "NATIVE+SERIAL") ||
-                strstr(threadModel.c_str(), "NATIVE+OPENMP")) {
+      } 
+      else if(strstr(threadModel.c_str(), "NATIVE+SERIAL") ||
+              strstr(threadModel.c_str(), "NATIVE+OPENMP")) 
+      {
         props["defines/USE_OCCA_MEM_BYTE_ALIGN"] = USE_OCCA_MEM_BYTE_ALIGN;
         props["okl/enabled"] = false;
         axKernel = device.buildKernel(filename + ".c", kernelName, props);
-      } else { // fallback is okl
-        //std::cout << props << std::endl;
+      } 
+      else if(strstr(threadModel.c_str(), "NATIVE+DPCPP")) 
+      {
+        props["okl/enabled"] = false;
+        axKernel = device.buildKernel(filename + ".dpcpp", kernelName, props);
+        occa::dim outerDims(Nelements);
+        occa::dim innerDims(Nq,Nq);
+        axKernel.setRunDims(outerDims,innerDims);
+      }
+      else
+      { // fallback is okl
         axKernel = device.buildKernel(filename + ".okl", kernelName, props);
       }
     }

@@ -9,7 +9,7 @@ project(axhelm)
 #target_link_libraries(axhelm 
 #  PUBLIC
 #    MPI::MPI_C 
-#    libocca
+#    OCCA::libocca
 #    BLAS::BLAS
 #    LAPACK::LAPACK
 #)

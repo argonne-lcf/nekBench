@@ -44,8 +44,7 @@ target_compile_definitions(ogs
     "DOGS=\"${CMAKE_INSTALL_PREFIX}\""
 )
 
-install(
-  TARGETS ogs 
+install(TARGETS ogs 
   LIBRARY DESTINATION lib
   PUBLIC_HEADER DESTINATION include
 )
