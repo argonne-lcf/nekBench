@@ -29,6 +29,7 @@ SOFTWARE.
 #include "ogsInterface.h"
 
 #include "scatterVec.tpp"
+#include <string.h>
 
 void ogsScatterVec_op(void *gv, void *v, const int k, const size_t Nbytes, const char *type, ogs_t *ogs);
 

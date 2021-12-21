@@ -27,6 +27,7 @@ SOFTWARE.
 #include "ogs.hpp"
 #include "ogsKernels.hpp"
 #include "ogsInterface.h"
+#include <string.h>
 
 void ogsGatherScatterVec(void *v, 
                       const int k,

@@ -9,6 +9,7 @@
 #include "ogsKernels.hpp"
 #include "ogsInterface.h"
 #include <list>
+#include <string.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -163,7 +164,7 @@ oogs_t* oogs::setup(ogs_t *ogs, int nVec, dlong stride, const char *type, std::f
   props["mapped"] = true;
 
   gs->h_buffSend = ogs->device.malloc(pwd->comm[send].total*unit_size, props);
-  gs->bufSend = (unsigned char*)gs->h_buffSend.ptr(props); 
+  gs->bufSend = (unsigned char*)gs->h_buffSend.ptr(); 
   int *scatterOffsets = (int*) calloc((Nhalo+1),sizeof(int));
   int *scatterIds = (int*) calloc(pwd->comm[send].total,sizeof(int));
   convertPwMap(pwd->map[send], scatterOffsets, scatterIds);
@@ -175,7 +176,7 @@ oogs_t* oogs::setup(ogs_t *ogs, int nVec, dlong stride, const char *type, std::f
   free(scatterIds);
 
   gs->h_buffRecv = ogs->device.malloc(pwd->comm[recv].total*unit_size, props);
-  gs->bufRecv = (unsigned char*)gs->h_buffRecv.ptr(props);
+  gs->bufRecv = (unsigned char*)gs->h_buffRecv.ptr();
   int* gatherOffsets  = (int*) calloc((Nhalo+1),sizeof(int));
   int *gatherIds  = (int*) calloc(pwd->comm[recv].total,sizeof(int));
   convertPwMap(pwd->map[recv], gatherOffsets, gatherIds);

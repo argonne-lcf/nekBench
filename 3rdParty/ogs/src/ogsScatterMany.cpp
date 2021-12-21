@@ -27,7 +27,7 @@ SOFTWARE.
 #include "ogs.hpp"
 #include "ogsKernels.hpp"
 #include "ogsInterface.h"
-
+#include <string.h>
 #include "scatterMany.tpp"
 
 void ogsScatterMany_op(void *gv, void *v, 

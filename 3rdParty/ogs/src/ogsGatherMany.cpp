@@ -27,7 +27,7 @@ SOFTWARE.
 #include "ogs.hpp"
 #include "ogsKernels.hpp"
 #include "ogsInterface.h"
-
+#include <string.h>
 #include "gatherMany.tpp"
 
 void ogsGatherMany_add(void *gv, void *v, const int k, const dlong gstride, const dlong stride, const size_t Nbytes, const char *type, ogs_t *ogs);

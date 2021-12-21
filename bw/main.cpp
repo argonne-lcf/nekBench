@@ -154,7 +154,7 @@ int main(int argc, char** argv)
       int Ntests = 5000;
       if(N[i] > 10000) Ntests = 100;
       const long long int bytes = N[i] * sizeof(double);
-      void* ptr = h_u.ptr(props);
+      void* ptr = h_u.ptr();
       device.finish();
       timer::reset("memcpyDH");
       timer::tic("memcpyDH");
@@ -174,7 +174,7 @@ int main(int argc, char** argv)
       int Ntests = 5000;
       if(N[i] > 10000) Ntests = 100;
       const long long int bytes = N[i] * sizeof(double);
-      void* ptr = h_u.ptr(props);
+      void* ptr = h_u.ptr();
       device.finish();
       timer::reset("memcpyHD");
       timer::tic("memcpyHD");

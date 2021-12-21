@@ -27,7 +27,7 @@ SOFTWARE.
 #include "ogs.hpp"
 #include "ogsKernels.hpp"
 #include "ogsInterface.h"
-
+#include <string.h>
 void ogsGatherScatterMany(void *v, 
                       const int k,
                       const dlong stride,

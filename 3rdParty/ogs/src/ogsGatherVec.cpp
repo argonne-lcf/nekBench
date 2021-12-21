@@ -27,7 +27,7 @@ SOFTWARE.
 #include "ogs.hpp"
 #include "ogsKernels.hpp"
 #include "ogsInterface.h"
-
+#include <string.h>
 #include "gatherVec.tpp"
 
 void ogsGatherVec_add(void *gv, void *v, const int k, const size_t Nbytes, const char *type, ogs_t *ogs);

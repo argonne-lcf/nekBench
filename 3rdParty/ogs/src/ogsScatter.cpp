@@ -27,7 +27,7 @@ SOFTWARE.
 #include "ogs.hpp"
 #include "ogsKernels.hpp"
 #include "ogsInterface.h"
-
+#include <string.h>
 #include "scatter.tpp"
 
 void ogsScatter_op(void *gv, void *v, const size_t Nbytes, const char *type, ogs_t *ogs);
