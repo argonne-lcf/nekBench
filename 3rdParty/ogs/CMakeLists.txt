@@ -35,7 +35,7 @@ target_include_directories(ogs
     $<INSTALL_INTERFACE:include> 
 )
 
-target_link_libraries(ogs PUBLIC MPI::MPI_C libocca gs)
+target_link_libraries(ogs PUBLIC MPI::MPI_C OCCA::libocca gs)
 set_target_properties(ogs PROPERTIES PUBLIC_HEADER ogs.hpp)
 
 target_compile_definitions(ogs 

@@ -23,6 +23,8 @@ if(EXTERNAL_BLASLAPACK)
   find_package(LAPACK)
 endif()
 
+find_package(occa REQUIRED)
+
 add_compile_definitions(
     "USE_OCCA_MEM_BYTE_ALIGN=64"
     "dfloat=double"

@@ -19,7 +19,7 @@ target_include_directories(nekBone
 target_link_libraries(nekBone 
   PUBLIC
     MPI::MPI_C
-    libocca
+    OCCA::libocca
     ogs
     BLAS::BLAS
     LAPACK::LAPACK
